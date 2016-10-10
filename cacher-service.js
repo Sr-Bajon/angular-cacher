@@ -33,9 +33,9 @@
      * pagina y haya información en el localstorage guardada
      */
     function init() {
-      let datos = $localStorage.cacher;
+      var datos = $localStorage.cacher;
       if (datos !== void(0)) {
-        for (let i in datos) {
+        for (var i in datos) {
           if (datos.hasOwnProperty(i)) {
             console.log(i);
             result.objects[i] = nuevoObjeto(i, datos[i].data, datos[i].mil, datos[i].date);
@@ -86,7 +86,12 @@
      * @instance
      */
     function set(nombre, data, storage, mil) {
-      result.objects[nombre] = nuevoObjeto(nombre, data, storage, mil);
+      try {
+        result.objects[nombre] = nuevoObjeto(nombre, data, storage, mil);
+        return result.objects[nombre];
+      } catch (err) {
+        return false;
+      }
     }
 
     /**
@@ -99,7 +104,7 @@
      */
     function get(nombre) {
       if (nombre === void(0)) {
-        return getAll();
+        return result.objects;
       } else {
         return getByName(nombre);
       }
@@ -118,16 +123,13 @@
       return datoCacheado;
     }
 
-    function getAll() {
-      return result.objects;
-    }
 
     /**
      * @description Borra la cache completa o el dato concreto si se indica como
      * parametro
      * @function clean
      * @param {String} [nombre] Si se indica borrará solo el dato concreto
-     * previamente cacheado
+     * previamente cacheado, si no se indica borra todos los datos en cache
      * @instance
      */
     function clean(nombre) {

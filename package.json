@@ -1,0 +1,32 @@
+{
+  "name": "cacher",
+  "version": "1.0.0",
+  "description": "Modulo de Angular para cachear datos en memoria y localStorage",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ismael-Rodriguez/angular-cacher.git"
+  },
+  "author": "Ismael R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ismael-Rodriguez/angular-cacher/issues"
+  },
+  "homepage": "https://github.com/Ismael-Rodriguez/angular-cacher#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8",
+    "ngstorage": "^0.3.11"
+  },
+  "devDependencies": {
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-nyan-reporter": "^0.2.4"
+  }
+}
